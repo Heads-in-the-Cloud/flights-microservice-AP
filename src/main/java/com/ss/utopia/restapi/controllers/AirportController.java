@@ -29,7 +29,7 @@ public class AirportController {
         );
     }
 
-    @GetMapping(path="/all")
+    @GetMapping(path={"/all", ""})
     public ResponseEntity<Iterable<Airport>> getAllAirports() {
         return new ResponseEntity<Iterable<Airport>>(
             airportDB.findAll(),

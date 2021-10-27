@@ -33,7 +33,7 @@ public class AirplaneController {
         );
     }
 
-    @GetMapping(path="/all")
+    @GetMapping(path={"/all", ""})
     public ResponseEntity<Iterable<Airplane>> getAllAirplanes() {
         return new ResponseEntity<>(airplaneDB.findAll(), HttpStatus.OK);
     }

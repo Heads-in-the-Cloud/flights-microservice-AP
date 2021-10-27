@@ -31,7 +31,7 @@ public class RouteController {
             );
     }
 
-    @GetMapping(path="/all")
+    @GetMapping(path={"/all", ""})
     public Iterable<Route> getAllRoutes() {
         return routeDB.findAll();
     }

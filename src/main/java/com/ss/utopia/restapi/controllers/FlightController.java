@@ -29,7 +29,7 @@ public class FlightController {
         );
     }
 
-    @GetMapping(path="/all")
+    @GetMapping(path={"/all", ""})
     public ResponseEntity<Iterable<Flight>> getAllFlights() {
         return new ResponseEntity<>(flightDB.findAll(), HttpStatus.OK);
     }
