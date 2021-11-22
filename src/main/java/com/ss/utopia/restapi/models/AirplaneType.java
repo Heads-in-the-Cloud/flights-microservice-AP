@@ -2,6 +2,8 @@ package com.ss.utopia.restapi.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import jdk.jfr.Unsigned;
@@ -9,6 +11,7 @@ import jdk.jfr.Unsigned;
 @Entity(name = "airplane_type")
 public class AirplaneType {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false, unique = true)
     @Unsigned
     private Integer id;
