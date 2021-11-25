@@ -26,19 +26,19 @@ public class Flight {
 
     @Column(name = "reserved_seats", nullable = false)
     @Unsigned
-    private int reservedSeats;
+    private Integer reservedSeats;
 
     @Column(name = "seat_price", nullable = false)
-    private float seatPrice;
+    private Float seatPrice;
 
     public Integer getId() { return id; }
     public void setId(Integer id) { this.id = id; }
 
-    public float getSeatPrice() { return seatPrice; }
-    public void setSeatPrice(float seatPrice) { this.seatPrice = seatPrice; }
+    public Float getSeatPrice() { return seatPrice; }
+    public void setSeatPrice(Float seatPrice) { this.seatPrice = seatPrice; }
 
-    public int getReservedSeats() { return reservedSeats; }
-    public void setReservedSeats(int reservedSeats) { this.reservedSeats = reservedSeats; }
+    public Integer getReservedSeats() { return reservedSeats; }
+    public void setReservedSeats(Integer reservedSeats) { this.reservedSeats = reservedSeats; }
 
     public Timestamp getDepartureTime() { return departureTime; }
     public void setDepartureTime(Timestamp departureTime) { this.departureTime = departureTime; }

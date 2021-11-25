@@ -44,7 +44,7 @@ public class AirplaneController {
         try {
             return new ResponseEntity<>(
                 airplaneDB.save(airplane),
-                HttpStatus.OK
+                HttpStatus.CREATED
             );
         } catch (IllegalArgumentException e) {
             throw new ResponseStatusException(

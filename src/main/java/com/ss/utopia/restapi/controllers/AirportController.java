@@ -42,7 +42,7 @@ public class AirportController {
         try {
             return new ResponseEntity<>(
                 airportDB.save(airport),
-                HttpStatus.OK
+                HttpStatus.CREATED
             );
         } catch (IllegalArgumentException e) {
             throw new ResponseStatusException(

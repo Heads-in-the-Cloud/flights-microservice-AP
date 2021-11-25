@@ -47,7 +47,7 @@ public class AirplaneTypeController {
         try {
             return new ResponseEntity<>(
                 airplaneTypeDB.save(airplaneType),
-                HttpStatus.OK
+                HttpStatus.CREATED
             );
         } catch (IllegalArgumentException e) {
             throw new ResponseStatusException(
@@ -75,7 +75,7 @@ public class AirplaneTypeController {
             AirplaneType updatedAirplaneType = airplaneTypeDB.save(airplaneType);
             return new ResponseEntity<>(
                 updatedAirplaneType,
-                HttpStatus.OK
+                HttpStatus.NO_CONTENT
             );
         } catch (IllegalArgumentException e) {
             throw new ResponseStatusException(
@@ -99,7 +99,7 @@ public class AirplaneTypeController {
         try {
             airplaneTypeDB.delete(airplaneType);
             resetService.resetAutoCounter("airplane_type");
-            return new ResponseEntity<>(airplaneType, HttpStatus.OK);
+            return new ResponseEntity<>(airplaneType, HttpStatus.NO_CONTENT);
         } catch (IllegalArgumentException e) {
             throw new ResponseStatusException(
                 HttpStatus.BAD_REQUEST,

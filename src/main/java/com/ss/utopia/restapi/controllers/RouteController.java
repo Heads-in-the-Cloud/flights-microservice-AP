@@ -42,7 +42,7 @@ public class RouteController {
         try {
             return new ResponseEntity<>(
                 routeDB.save(route),
-                HttpStatus.OK
+                HttpStatus.CREATED
             );
         } catch (IllegalArgumentException e) {
             throw new ResponseStatusException(

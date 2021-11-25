@@ -41,7 +41,7 @@ public class FlightController {
         }
 
         try {
-            return new ResponseEntity<>(flightDB.save(flight), HttpStatus.OK);
+            return new ResponseEntity<>(flightDB.save(flight), HttpStatus.CREATED);
         } catch (IllegalArgumentException e) {
             throw new ResponseStatusException(
                 HttpStatus.BAD_REQUEST,
@@ -62,11 +62,11 @@ public class FlightController {
             .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Flight not found!")
         );
 
-        flight.setRoute(flightDetails.getRoute());
-        flight.setAirplane(flightDetails.getAirplane());
-        flight.setDepartureTime(flightDetails.getDepartureTime());
-        flight.setReservedSeats(flightDetails.getReservedSeats());
-        flight.setSeatPrice(flightDetails.getSeatPrice());
+        if (flightDetails.getRoute() != null) flight.setRoute(flightDetails.getRoute());
+        if (flightDetails.getAirplane() != null) flight.setAirplane(flightDetails.getAirplane());
+        if (flightDetails.getDepartureTime() != null) flight.setDepartureTime(flightDetails.getDepartureTime());
+        if (flightDetails.getReservedSeats() != null) flight.setReservedSeats(flightDetails.getReservedSeats());
+        if (flightDetails.getSeatPrice() != null) flight.setSeatPrice(flightDetails.getSeatPrice());
 
         try {
             Flight updatedFlight = flightDB.save(flight);
