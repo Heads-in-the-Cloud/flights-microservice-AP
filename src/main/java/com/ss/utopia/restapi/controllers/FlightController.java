@@ -36,9 +36,6 @@ public class FlightController {
 
     @PostMapping(path = "")
     public ResponseEntity<?> createFlight(@RequestBody Flight flight) {
-        if (flight.getId() == null) {
-            flight.setId((int)flightDB.count());
-        }
 
         try {
             return new ResponseEntity<>(flightDB.save(flight), HttpStatus.CREATED);

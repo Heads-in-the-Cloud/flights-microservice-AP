@@ -9,6 +9,7 @@ import jdk.jfr.Unsigned;
 @Entity(name = "flight")
 public class Flight {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false, unique = true)
     @Unsigned
     private Integer id;
