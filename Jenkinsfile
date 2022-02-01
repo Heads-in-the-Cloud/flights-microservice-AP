@@ -49,7 +49,10 @@ pipeline {
 
             // Run EKSctl control update pods
             echo(message: 'EKS Deploy!')
-            //
+            build(job: 'EKSDeploy', propagate: true, parameters: [
+                booleanParam(name: 'Deploy', value: true ),
+                string( name: 'Service', value: 'flights' )
+            ])
 
             // Deploy CloudFormation templates update
             echo(message: 'CloudFormation Deploy!')
