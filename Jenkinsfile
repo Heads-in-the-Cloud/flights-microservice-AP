@@ -23,7 +23,11 @@ pipeline {
             git(branch: 'dev', url: 'https://github.com/Heads-in-the-Cloud/flights-microservice-AP.git')
         }}
         stage('Tests') { steps{
-            echo(message: 'Testing!')
+            echo(message: 'Running SonarQube Tests!')
+            script{
+            withSonarQubeEnv(installationName: 'SonarQube') {
+                sh(script: 'mvn clean verify sonar:sonar -Dsonar.projectKey=Flights')
+            }}
         }}
         stage('Build') { steps{
             echo(message: 'Building!')
